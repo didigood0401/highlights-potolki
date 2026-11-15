@@ -1,0 +1,29 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Обложки хайлайтов - натяжные потолки</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Manrope,Arial,sans-serif;background:#f3f1ee;color:#1e2226;padding:30px 16px 50px}
+.w{max-width:900px;margin:0 auto}h1{font-size:clamp(24px,4vw,34px)}p.l{color:#5d6168;margin:6px 0 20px}
+.seg{display:inline-flex;background:#fff;border-radius:999px;padding:4px;margin-bottom:22px}.seg button{border:0;background:transparent;padding:9px 16px;border-radius:999px;font:700 13px Manrope;cursor:pointer;color:#5d6168}.seg button.on{background:#1e2226;color:#fff}
+.ph{background:#fff;border-radius:28px;padding:22px;box-shadow:0 20px 40px rgba(0,0,0,.08)}
+.prof{display:flex;align-items:center;gap:16px;margin-bottom:20px}.av{width:74px;height:74px;border-radius:50%;background:#1e2226;color:#fff;display:grid;place-items:center;font-weight:800}
+.row{display:flex;gap:16px;overflow-x:auto;padding-bottom:6px}
+.hl{flex:none;text-align:center;font-size:13px;font-weight:700;width:96px}
+.hl .c{width:84px;height:84px;margin:0 auto 6px;border-radius:50%;padding:3px;border:1.5px solid #d6d2cc}
+.hl svg{width:100%;height:100%;border-radius:50%;display:block}
+</style></head><body><div class="w">
+<h1>Обложки хайлайтов · натяжные потолки</h1><p class="l">Демо: 6 обложек в одном стиле. Переключите палитру - подберём под ваш профиль.</p>
+<div class="seg" id="sg"><button data-p="0" class="on">Графит + золото</button><button data-p="1">Белый + голубой</button><button data-p="2">Бежевый</button></div>
+<div class="ph"><div class="prof"><div class="av">LOGO</div><div><b>potolki.studio</b><br><span style="color:#5d6168;font-size:14px">Натяжные потолки под ключ</span></div></div><div class="row" id="row"></div></div>
+</div>
+<script>
+const P=[['#23262b','#c9a46a'],['#eaf3fb','#2f7fc1'],['#efe6da','#8a6a48']];
+const I={
+'Работы':'<path d="M18 30h28M14 30l18-12 18 12" /><path d="M20 30v14h24V30"/>',
+'Цены':'<path d="M22 20h14l10 10-14 14-10-10z"/><circle cx="28" cy="26" r="2.5"/>',
+'Свет':'<path d="M32 16v6M20 22l4 4M44 22l-4 4"/><circle cx="32" cy="34" r="8"/><path d="M28 44h8"/>',
+'Отзывы':'<path d="M32 18l4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z"/>',
+'Замер':'<path d="M16 36h32v8H16z"/><path d="M22 36v4M28 36v5M34 36v4M40 36v5"/><path d="M24 26h16M24 22l-4 4 4 4M40 22l4 4-4 4"/>',
+'Акции':'<path d="M22 42l20-20"/><circle cx="24" cy="24" r="4"/><circle cx="40" cy="40" r="4"/>'};
+function draw(p){const [bg,fg]=P[p];document.getElementById('row').innerHTML=Object.entries(I).map(([n,s])=>`<div class="hl"><div class="c"><svg viewBox="0 0 64 64"><rect width="64" height="64" fill="${bg}"/><g fill="none" stroke="${fg}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${s}</g></svg></div>${n}</div>`).join('')}
+document.querySelectorAll('#sg button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#sg button').forEach(x=>x.classList.toggle('on',x===b));draw(+b.dataset.p)});draw(0);
+</script></body></html>
